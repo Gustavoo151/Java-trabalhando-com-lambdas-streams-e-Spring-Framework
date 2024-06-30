@@ -1,4 +1,4 @@
-package com.example.scrammatch;
+package com.example.scrammatch.service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -14,6 +14,7 @@ public class ConsumoAPI {
                 .uri(URI.create(endereco))
                 .build();
         HttpResponse<String> response = null;
+
         try {
             response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
@@ -21,6 +22,7 @@ public class ConsumoAPI {
             throw new RuntimeException(e);
         }
 
-        return response.body();
+        String json = response.body();
+        return json;
     }
 }
