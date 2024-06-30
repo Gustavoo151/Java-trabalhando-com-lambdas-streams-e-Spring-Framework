@@ -1,4 +1,8 @@
 package com.example.scrammatch.model;
 
-public record DadosSerie() {
+import com.fasterxml.jackson.annotation.JsonAlias;
+
+public record DadosSerie(@JsonAlias("Title") String titulo,
+                         @JsonAlias("totalSeasons") int totalTemporadas,
+                         @JsonAlias("imdbRating") String avaliacao) {
 }
