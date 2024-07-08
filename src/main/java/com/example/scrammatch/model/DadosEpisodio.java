@@ -1,8 +1,12 @@
 package com.example.scrammatch.model;
 
-public record DadosEpisodio(String titulo,
-                            Integer numero,
-                            String avaliacao,
-                            String dataLancamento) {
-}
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record DadosEpisodio(@JsonAlias("Title") String titulo,
+                            @JsonAlias("Episode") Integer numero,
+                            @JsonAlias("imdbRating") String avaliacao,
+                            @JsonAlias("Released") String dataLancamento) {
+}
